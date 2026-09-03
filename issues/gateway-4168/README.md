@@ -1,6 +1,6 @@
 # Gateway #4168 — response mutation after standard `ServerResponse`
 
-Status: **active investigation**
+Status: **active upstream investigation**
 
 Upstream: `spring-cloud/spring-cloud-gateway#4168`
 
@@ -34,6 +34,11 @@ The investigation is testing a unified response adaptation boundary rather than 
 ## Reproduction
 
 A focused unit regression test was added locally that applies `addResponseHeader` to `ServerResponse.ok().build()`. It is expected to fail on the unmodified baseline with `UnsupportedOperationException`; exact test evidence will be recorded after Maven completes.
+
+## Upstream interaction
+
+- Investigation comment posted: https://github.com/spring-cloud/spring-cloud-gateway/issues/4168#issuecomment-5522313106
+- The comment documents the current response lifecycle mismatch, the 2023 cast-removal history, and asks maintainers to choose between Gateway-response-only semantics and full arbitrary-`ServerResponse` adaptation.
 
 ## Maintainer interaction strategy
 
